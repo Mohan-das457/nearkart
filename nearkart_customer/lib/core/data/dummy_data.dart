@@ -1,0 +1,335 @@
+import 'package:flutter/material.dart';
+import 'package:nearkart_customer/core/models/category_model.dart';
+import 'package:nearkart_customer/core/models/product_model.dart';
+import 'package:nearkart_customer/core/models/store_model.dart';
+
+class DummyData {
+  static const List<String> banners = [
+    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800',
+    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800',
+    'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=800',
+  ];
+
+  static const List<CategoryModel> categories = [
+    CategoryModel(id: '1', name: 'Fruits',     icon: Icons.energy_savings_leaf_rounded, color: Color(0xFF4CAF50)),
+    CategoryModel(id: '2', name: 'Vegetables', icon: Icons.eco_rounded,                 color: Color(0xFF8BC34A)),
+    CategoryModel(id: '3', name: 'Dairy',      icon: Icons.egg_rounded,                 color: Color(0xFFFFC107)),
+    CategoryModel(id: '4', name: 'Bakery',     icon: Icons.breakfast_dining_rounded,    color: Color(0xFFFF9800)),
+    CategoryModel(id: '5', name: 'Beverages',  icon: Icons.local_cafe_rounded,          color: Color(0xFF03A9F4)),
+    CategoryModel(id: '6', name: 'Snacks',     icon: Icons.fastfood_rounded,            color: Color(0xFFE91E63)),
+    CategoryModel(id: '7', name: 'Meat',       icon: Icons.set_meal_rounded,            color: Color(0xFFF44336)),
+    CategoryModel(id: '8', name: 'More',       icon: Icons.grid_view_rounded,           color: Color(0xFF9C27B0)),
+  ];
+
+  static const List<ProductModel> allProducts = [
+    // Fruits
+    ProductModel(
+      id: '1', name: 'Fresh Banana', category: 'Fruits', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400',
+      images: [
+        'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600',
+        'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=600',
+        'https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=600',
+      ],
+      price: 40, originalPrice: 60, unit: '1 dozen', unitOptions: ['1 dozen', '500g', '1 kg'],
+      rating: 4.5, reviewCount: 128,
+      description: 'Farm-fresh Cavendish bananas sourced directly from local farms. Naturally ripened and packed with energy.',
+      benefits: ['Rich in potassium', 'Natural energy booster', 'Good for digestion', 'No preservatives'],
+    ),
+    ProductModel(
+      id: '2', name: 'Red Apple', category: 'Fruits', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400',
+      images: [
+        'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600',
+        'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=600',
+      ],
+      price: 120, originalPrice: 150, unit: '4 pcs', unitOptions: ['4 pcs', '6 pcs', '1 kg'],
+      rating: 4.6, reviewCount: 95,
+      description: 'Crisp and sweet Royal Gala apples, handpicked at peak ripeness for maximum flavour.',
+      benefits: ['High in fibre', 'Rich in vitamin C', 'Antioxidant-rich', 'Heart healthy'],
+    ),
+    ProductModel(
+      id: '3', name: 'Sweet Mango', category: 'Fruits', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400',
+      images: ['https://images.unsplash.com/photo-1553279768-865429fa0078?w=600'],
+      price: 90, originalPrice: 120, unit: '2 pcs', unitOptions: ['2 pcs', '4 pcs', '1 kg'],
+      rating: 4.8, reviewCount: 214,
+      description: 'Alphonso mangoes — the king of fruits. Naturally sweet, fibre-rich and full of tropical flavour.',
+      benefits: ['Vitamin A & C', 'Boosts immunity', 'Aids digestion', 'Natural sweetener'],
+    ),
+    ProductModel(
+      id: '4', name: 'Watermelon', category: 'Fruits', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400',
+      images: ['https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600'],
+      price: 60, originalPrice: 80, unit: '1 kg', unitOptions: ['1 kg', '2 kg', 'Whole'],
+      rating: 4.4, reviewCount: 76,
+      description: 'Juicy seedless watermelons, perfect for summer hydration. Freshly cut or delivered whole.',
+      benefits: ['92% water content', 'Hydrating', 'Low calorie', 'Rich in lycopene'],
+    ),
+    // Vegetables
+    ProductModel(
+      id: '5', name: 'Red Tomato', category: 'Vegetables', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400',
+      images: ['https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=600'],
+      price: 30, originalPrice: 50, unit: '500g', unitOptions: ['250g', '500g', '1 kg'],
+      rating: 4.2, reviewCount: 63,
+      description: 'Fresh vine-ripened tomatoes. Perfect for curries, salads and sauces.',
+      benefits: ['Rich in lycopene', 'Vitamin C', 'Low calorie', 'Antioxidant'],
+    ),
+    ProductModel(
+      id: '6', name: 'Fresh Spinach', category: 'Vegetables', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400',
+      images: ['https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=600'],
+      price: 25, originalPrice: 35, unit: '250g', unitOptions: ['250g', '500g'],
+      rating: 4.3, reviewCount: 41,
+      description: 'Tender baby spinach leaves, freshly harvested. Ideal for salads, smoothies and sautéing.',
+      benefits: ['Iron-rich', 'High in folate', 'Vitamin K', 'Good for bones'],
+    ),
+    ProductModel(
+      id: '7', name: 'Onion', category: 'Vegetables', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=400',
+      images: ['https://images.unsplash.com/photo-1508747703725-719777637510?w=600'],
+      price: 40, originalPrice: 55, unit: '1 kg', unitOptions: ['500g', '1 kg', '2 kg'],
+      rating: 4.1, reviewCount: 88,
+      description: 'Premium red onions — a kitchen essential for everyday Indian cooking.',
+      benefits: ['Anti-inflammatory', 'Boosts immunity', 'Heart healthy', 'Prebiotic'],
+    ),
+    ProductModel(
+      id: '8', name: 'Carrot', category: 'Vegetables', storeId: '2',
+      image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400',
+      images: ['https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=600'],
+      price: 35, originalPrice: 50, unit: '500g', unitOptions: ['250g', '500g', '1 kg'],
+      rating: 4.4, reviewCount: 57,
+      description: 'Fresh crunchy carrots, great for juicing, salads or cooking. Sourced from Ooty farms.',
+      benefits: ['Beta carotene', 'Good for eyes', 'High fibre', 'Vitamin A'],
+    ),
+    // Dairy
+    ProductModel(
+      id: '9', name: 'Whole Milk', category: 'Dairy', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400',
+      images: ['https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600'],
+      price: 55, originalPrice: 65, unit: '1 litre', unitOptions: ['500ml', '1 litre', '2 litre'],
+      rating: 4.7, reviewCount: 302,
+      description: 'Fresh full-cream milk, pasteurised and homogenised. Sourced from free-range cows.',
+      benefits: ['High in calcium', 'Protein-rich', 'Vitamin D', 'Bone strength'],
+    ),
+    ProductModel(
+      id: '10', name: 'Salted Butter', category: 'Dairy', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400',
+      images: ['https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=600'],
+      price: 50, originalPrice: 60, unit: '100g', unitOptions: ['100g', '200g', '500g'],
+      rating: 4.5, reviewCount: 145,
+      description: 'Creamy Amul-style salted butter, made from fresh pasteurised cream. Perfect for spreading and cooking.',
+      benefits: ['Good fats', 'Vitamin A & D', 'Energy dense', 'Natural flavour'],
+    ),
+    ProductModel(
+      id: '11', name: 'Greek Yogurt', category: 'Dairy', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+      images: ['https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600'],
+      price: 70, originalPrice: 90, unit: '200g', unitOptions: ['200g', '400g'],
+      rating: 4.6, reviewCount: 189,
+      description: 'Thick, strained Greek yogurt with live cultures. Naturally high in protein and probiotics.',
+      benefits: ['Probiotic-rich', 'High protein', 'Gut health', 'Low sugar'],
+    ),
+    ProductModel(
+      id: '12', name: 'Paneer', category: 'Dairy', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400',
+      images: ['https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600'],
+      price: 80, originalPrice: 100, unit: '200g', unitOptions: ['200g', '500g', '1 kg'],
+      rating: 4.4, reviewCount: 267,
+      description: 'Fresh homestyle paneer made from pure cow milk. Soft texture, ideal for curries and grilling.',
+      benefits: ['High protein', 'Calcium-rich', 'Vegetarian protein', 'Low carb'],
+    ),
+    // Bakery
+    ProductModel(
+      id: '13', name: 'Brown Bread', category: 'Bakery', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400',
+      images: ['https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600'],
+      price: 35, originalPrice: 45, unit: '400g', unitOptions: ['400g', '800g'],
+      rating: 4.3, reviewCount: 112,
+      description: 'Wholesome brown bread baked fresh every morning with whole wheat flour and no maida.',
+      benefits: ['Whole grain', 'High fibre', 'No maida', 'Slow digesting'],
+    ),
+    ProductModel(
+      id: '14', name: 'Croissant', category: 'Bakery', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400',
+      images: ['https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600'],
+      price: 25, originalPrice: 35, unit: '1 pc', unitOptions: ['1 pc', '2 pcs', '4 pcs'],
+      rating: 4.5, reviewCount: 78,
+      description: 'Flaky, buttery French-style croissants baked fresh daily. Best enjoyed warm.',
+      benefits: ['Freshly baked', 'Butter-layered', 'Crispy outside', 'Soft inside'],
+    ),
+    ProductModel(
+      id: '15', name: 'Multigrain Loaf', category: 'Bakery', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400',
+      images: ['https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600'],
+      price: 55, originalPrice: 70, unit: '500g', unitOptions: ['500g', '1 kg'],
+      rating: 4.2, reviewCount: 56,
+      description: 'Nutritious multigrain loaf with oats, flaxseeds and sunflower seeds. Baked without preservatives.',
+      benefits: ['7 grains', 'No preservatives', 'High fibre', 'Omega-3 seeds'],
+    ),
+    // Beverages
+    ProductModel(
+      id: '16', name: 'Orange Juice', category: 'Beverages', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400',
+      images: ['https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600'],
+      price: 80, originalPrice: 110, unit: '1 litre', unitOptions: ['250ml', '500ml', '1 litre'],
+      rating: 4.6, reviewCount: 143,
+      description: '100% cold-pressed orange juice with no added sugar or preservatives. Squeeze fresh every day.',
+      benefits: ['Vitamin C', 'No added sugar', 'Cold-pressed', 'Immunity boost'],
+    ),
+    ProductModel(
+      id: '17', name: 'Green Tea', category: 'Beverages', storeId: '4',
+      image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400',
+      images: ['https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600'],
+      price: 120, originalPrice: 150, unit: '25 bags', unitOptions: ['25 bags', '50 bags'],
+      rating: 4.7, reviewCount: 198,
+      description: 'Premium Darjeeling green tea bags. Light, refreshing taste with natural antioxidants.',
+      benefits: ['Rich in antioxidants', 'Boosts metabolism', 'Calming', 'Zero calories'],
+    ),
+    ProductModel(
+      id: '18', name: 'Cold Coffee', category: 'Beverages', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400',
+      images: ['https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600'],
+      price: 90, originalPrice: 110, unit: '250ml', unitOptions: ['250ml', '500ml'],
+      rating: 4.4, reviewCount: 87,
+      description: 'Ready-to-drink cold brew coffee with a smooth, bold flavour. No artificial flavours.',
+      benefits: ['Cold brewed', 'No artificial flavours', 'Caffeine kick', 'Smooth taste'],
+    ),
+    // Snacks
+    ProductModel(
+      id: '19', name: 'Potato Chips', category: 'Snacks', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400',
+      images: ['https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=600'],
+      price: 20, originalPrice: 25, unit: '50g', unitOptions: ['50g', '100g', '200g'],
+      rating: 4.1, reviewCount: 312,
+      description: 'Classic salted potato chips, thinly sliced and kettle-cooked for extra crunch.',
+      benefits: ['Kettle cooked', 'Real potatoes', 'No MSG', 'Crispy'],
+    ),
+    ProductModel(
+      id: '20', name: 'Dark Chocolate', category: 'Snacks', storeId: '4',
+      image: 'https://images.unsplash.com/photo-1548907040-4d42bfc3f15e?w=400',
+      images: ['https://images.unsplash.com/photo-1548907040-4d42bfc3f15e?w=600'],
+      price: 60, originalPrice: 80, unit: '80g', unitOptions: ['80g', '160g'],
+      rating: 4.8, reviewCount: 224,
+      description: '72% dark chocolate bar crafted from single-origin cacao beans. Intense, smooth and guilt-free.',
+      benefits: ['72% cacao', 'Antioxidant-rich', 'Mood booster', 'Low sugar'],
+    ),
+    // Meat
+    ProductModel(
+      id: '21', name: 'Chicken Breast', category: 'Meat', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400',
+      images: ['https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=600'],
+      price: 180, originalPrice: 220, unit: '500g', unitOptions: ['250g', '500g', '1 kg'],
+      rating: 4.5, reviewCount: 143,
+      description: 'Fresh boneless chicken breast, cleaned and ready to cook. Sourced from free-range farms.',
+      benefits: ['High protein', 'Low fat', 'No hormones', 'Fresh daily'],
+    ),
+    ProductModel(
+      id: '22', name: 'Mutton Curry Cut', category: 'Meat', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400',
+      images: ['https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600'],
+      price: 380, originalPrice: 450, unit: '500g', unitOptions: ['250g', '500g', '1 kg'],
+      rating: 4.6, reviewCount: 98,
+      description: 'Fresh goat mutton curry cut pieces, cleaned and washed. Perfect for curries and biryanis.',
+      benefits: ['Rich in iron', 'High protein', 'Fresh cut', 'No preservatives'],
+    ),
+    ProductModel(
+      id: '23', name: 'Eggs (Farm Fresh)', category: 'Meat', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400',
+      images: ['https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=600'],
+      price: 72, originalPrice: 90, unit: '12 pcs', unitOptions: ['6 pcs', '12 pcs', '30 pcs'],
+      rating: 4.7, reviewCount: 312,
+      description: 'Farm-fresh brown eggs from free-range hens. Rich in protein and omega-3 fatty acids.',
+      benefits: ['High protein', 'Omega-3 rich', 'Free-range', 'No antibiotics'],
+    ),
+    ProductModel(
+      id: '24', name: 'Fish Fillet', category: 'Meat', storeId: '1',
+      image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400',
+      images: ['https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600'],
+      price: 220, originalPrice: 280, unit: '500g', unitOptions: ['250g', '500g'],
+      rating: 4.4, reviewCount: 67,
+      description: 'Fresh Rohu fish fillet, cleaned and deboned. Delivered on ice to maintain freshness.',
+      benefits: ['Omega-3 fatty acids', 'Low calorie', 'High protein', 'Heart healthy'],
+    ),
+    // More (Household & Personal Care)
+    ProductModel(
+      id: '25', name: 'Dish Wash Liquid', category: 'More', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=400',
+      images: ['https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600'],
+      price: 85, originalPrice: 110, unit: '500ml', unitOptions: ['250ml', '500ml', '1 litre'],
+      rating: 4.3, reviewCount: 189,
+      description: 'Concentrated dish wash liquid with lemon fragrance. Cuts through grease effectively.',
+      benefits: ['Grease cutting', 'Lemon fresh', 'Gentle on hands', 'Concentrated'],
+    ),
+    ProductModel(
+      id: '26', name: 'Hand Sanitizer', category: 'More', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400',
+      images: ['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'],
+      price: 60, originalPrice: 80, unit: '200ml', unitOptions: ['100ml', '200ml', '500ml'],
+      rating: 4.5, reviewCount: 256,
+      description: '70% alcohol-based hand sanitizer. Kills 99.9% of germs without water.',
+      benefits: ['70% alcohol', '99.9% germ kill', 'No water needed', 'Quick dry'],
+    ),
+    ProductModel(
+      id: '27', name: 'Toilet Paper (6 rolls)', category: 'More', storeId: '3',
+      image: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=400',
+      images: ['https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=600'],
+      price: 120, originalPrice: 150, unit: '6 rolls', unitOptions: ['6 rolls', '12 rolls'],
+      rating: 4.2, reviewCount: 134,
+      description: 'Soft 2-ply toilet paper rolls. Strong, absorbent and gentle on skin.',
+      benefits: ['2-ply soft', 'Strong & absorbent', 'Skin gentle', 'Eco-friendly'],
+    ),
+    ProductModel(
+      id: '28', name: 'Shampoo', category: 'More', storeId: '4',
+      image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400',
+      images: ['https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600'],
+      price: 175, originalPrice: 220, unit: '200ml', unitOptions: ['100ml', '200ml', '400ml'],
+      rating: 4.6, reviewCount: 201,
+      description: 'Nourishing shampoo with argan oil and keratin. Reduces frizz and adds shine.',
+      benefits: ['Argan oil', 'Keratin enriched', 'Frizz control', 'Sulphate free'],
+    ),
+  ];
+
+  static List<ProductModel> get deals =>
+      allProducts.where((p) => p.discountPercent >= 20).toList();
+
+  static const List<StoreModel> stores = [
+    StoreModel(
+      id: '1', name: 'Fresh Mart', category: 'Grocery',
+      description: 'Your one-stop shop for fresh groceries, daily essentials and more — delivered fast to your door.',
+      banner: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800',
+      rating: 4.5, reviewCount: 320, deliveryMinutes: 20, distance: '0.8 km',
+      minOrder: 99, deliveryFee: 0, isOpen: true, openingHours: '7:00 AM – 10:00 PM',
+      tags: ['Grocery', 'Fresh', 'Daily Essentials'],
+    ),
+    StoreModel(
+      id: '2', name: 'Green Basket', category: 'Fruits & Vegetables',
+      description: 'Farm-fresh fruits and vegetables sourced directly from local farmers every morning.',
+      banner: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800',
+      rating: 4.3, reviewCount: 185, deliveryMinutes: 30, distance: '1.2 km',
+      minOrder: 149, deliveryFee: 15, isOpen: true, openingHours: '6:00 AM – 9:00 PM',
+      tags: ['Fruits', 'Vegetables', 'Farm Fresh', 'Organic'],
+    ),
+    StoreModel(
+      id: '3', name: 'Daily Needs', category: 'Supermarket',
+      description: 'Everything you need for the day — groceries, snacks, beverages and household items.',
+      banner: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800',
+      rating: 4.7, reviewCount: 512, deliveryMinutes: 15, distance: '0.4 km',
+      minOrder: 79, deliveryFee: 0, isOpen: true, openingHours: '8:00 AM – 11:00 PM',
+      tags: ['Supermarket', 'Snacks', 'Beverages', 'Household'],
+    ),
+    StoreModel(
+      id: '4', name: 'Organic Hub', category: 'Organic Store',
+      description: 'Certified organic produce and natural products for a healthier lifestyle.',
+      banner: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800',
+      rating: 4.8, reviewCount: 97, deliveryMinutes: 35, distance: '2.1 km',
+      minOrder: 199, deliveryFee: 25, isOpen: false, openingHours: '9:00 AM – 8:00 PM',
+      tags: ['Organic', 'Natural', 'Healthy', 'Vegan'],
+    ),
+  ];
+
+  static const List<String> popularSearches = [
+    'Milk', 'Bread', 'Eggs', 'Banana', 'Tomato', 'Paneer', 'Juice', 'Chips',
+  ];
+}
